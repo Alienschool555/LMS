@@ -144,5 +144,4 @@ abstract class BaseTest {
 
         return page;
     }
-
 }
