@@ -89,7 +89,7 @@ public class TestTutorTest extends BaseTest {
 
     // This test is flaky due to a bug in the application.
     //<div><span class="sc-iBkjds gpMBxJ sc-fJoEar ivteeS">Sending error</span><span class="sc-iBkjds gpMBxJ sc-bQRcPC klVndr">Try again later</span></div>
-    @Ignore
+    //@Ignore
     @Severity(SeverityLevel.NORMAL)
     @Story("Tests")
     @TmsLink("ma75x05c8pvc")
