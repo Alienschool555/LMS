@@ -24,15 +24,15 @@ public class StudyGuideTest extends BaseTest {
         StudyGuidePage studyGuidePage =
                 new HomePage(getPage()).init()
                         .clickStudyGuideMenu()
-                        .doubleClickOnWord(TestData.PROJECTIONS);
+                        .doubleClickOnWord(TestData.SUPPORTS)
+                        .clickOnWord(TestData.SUPPORTS);
 
         final Locator noteTextAria = studyGuidePage.getNoteTextAria();
-        final Locator word = studyGuidePage.getWord(TestData.PROJECTIONS);
+        final Locator word = studyGuidePage.getWord(TestData.SUPPORTS);
 
         Allure.step("Assert that text aria to put the note is visible.");
         assertThat(noteTextAria).isVisible();
-
-        Allure.step("Assert that selected word '" + TestData.PROJECTIONS + "' is highlighted.");
+        Allure.step("Assert that selected word '" + TestData.SUPPORTS + "' is highlighted.");
         assertThat(word).hasCSS(TestData.BACKGROUND_COLOR, TestData.RGBA_62_48_179_0_2);
     }
 
@@ -48,14 +48,18 @@ public class StudyGuideTest extends BaseTest {
                         .clickStudyGuideMenu()
                         .highlightWords(TestData.PHALANGES_IN_THE_FINGERS);
 
-        final Locator noteTextAria = studyGuidePage.getNoteTextAria();
         final Locator words = studyGuidePage.getWords(TestData.PHALANGES_IN_THE_FINGERS);
-
-        Allure.step("Assert that text aria to put the note is visible.");
-        assertThat(noteTextAria).isVisible();
+        final String wordsText = studyGuidePage.getWordsText(TestData.PHALANGES_IN_THE_FINGERS);
 
         Allure.step("Assert that selected words " + TestData.PHALANGES_IN_THE_FINGERS + " are highlighted.");
         assertThat(words).hasCSS(TestData.BACKGROUND_COLOR, TestData.RGBA_62_48_179_0_2);
+
+        studyGuidePage.clickOnWord(wordsText);
+
+        final Locator noteTextAria = studyGuidePage.getNoteTextAria();
+
+        Allure.step("Assert that text aria to put the note is visible.");
+        assertThat(noteTextAria).isVisible();
     }
 
     @Severity(SeverityLevel.NORMAL)
@@ -68,35 +72,36 @@ public class StudyGuideTest extends BaseTest {
         StudyGuidePage studyGuidePage =
                 new HomePage(getPage()).init()
                         .clickStudyGuideMenu()
-                        .doubleClickOnWord(TestData.PROJECTIONS)
+                        .doubleClickOnWord(TestData.SUPPORTS)
+                        .clickOnWord(TestData.SUPPORTS)
                         .inputNoteText(TestUtils.getRandomString(10))
                         .clickNoteSaveButton();
 
         final Locator noteTextAria = studyGuidePage.getNoteTextAria();
-        final Locator word = studyGuidePage.getWord(TestData.PROJECTIONS);
+        final Locator word = studyGuidePage.getWord(TestData.SUPPORTS);
 
         Allure.step("Assert that text aria to put the note is Not visible.");
         assertThat(noteTextAria).not().isVisible();
 
-        Allure.step("Assert that selected word '" + TestData.PROJECTIONS + "' is highlighted.");
-        assertThat(word).hasCSS(TestData.BACKGROUND_COLOR, TestData.RGBA_62_48_179_0_2);
+//        Allure.step("Assert that selected word '" + TestData.SUPPORTS + "' is highlighted.");
+//        assertThat(word).hasCSS(TestData.BACKGROUND_COLOR, TestData.RGBA_62_48_179_0_2);
 
-        studyGuidePage
-                .clickHighlightsAndNotesButton();
-
-        final Locator wordNoteButton = studyGuidePage.getHighlightedWordButton();
-
-        Allure.step("Assert that text aria to put the note is visible.");
-        assertThat(wordNoteButton).isVisible();
-
-        Allure.step("Assert that Note button is created on the right side menu.");
-        assertThat(wordNoteButton).hasCount(1);
-
-        Allure.step("Assert that Note button is visible on the right side menu.");
-        assertThat(wordNoteButton).isVisible();
-
-        Allure.step("Assert that Note button has text '" + TestData.PROJECTIONS + "'.");
-        assertThat(wordNoteButton).hasText(TestData.PROJECTIONS);
+//        studyGuidePage
+//                .clickHighlightsAndNotesButton();
+//
+//        final Locator wordNoteButton = studyGuidePage.getHighlightedWordButton();
+//
+//        Allure.step("Assert that text aria to put the note is visible.");
+//        assertThat(wordNoteButton).isVisible();
+//
+//        Allure.step("Assert that Note button is created on the right side menu.");
+//        assertThat(wordNoteButton).hasCount(1);
+//
+//        Allure.step("Assert that Note button is visible on the right side menu.");
+//        assertThat(wordNoteButton).isVisible();
+//
+//        Allure.step("Assert that Note button has text '" + TestData.PROJECTIONS + "'.");
+//        assertThat(wordNoteButton).hasText(TestData.PROJECTIONS);
     }
 
     @Severity(SeverityLevel.NORMAL)

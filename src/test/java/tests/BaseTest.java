@@ -60,9 +60,9 @@ abstract class BaseTest {
     }
 
     @BeforeMethod
-    void createContextAndPage(Method method) {
+    void createContextAndPage(Method method) throws InterruptedException {
         Allure.step("User is logged into the application.");
-
+        Thread.sleep(3000);
         APIUtils.activateGoldSubscription();
         Allure.step("The active course has GOLD subscription.");
 
