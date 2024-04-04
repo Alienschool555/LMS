@@ -32,12 +32,18 @@ public final class StudyGuidePage extends BaseFooter<StudyGuidePage> implements 
 
     public Locator getWord(String word) {
 
-        return text(word).nth(1);
+        return text(word).nth(0);
     }
 
     @Step("Double click on the word '{word}'")
     public StudyGuidePage doubleClickOnWord(String word) {
         getWord(word).dblclick();
+
+        return this;
+    }
+    @Step("Double click on the word '{word}'")
+    public StudyGuidePage clickOnWord(String word) {
+        getWord(word).click();
 
         return this;
     }
@@ -148,5 +154,9 @@ public final class StudyGuidePage extends BaseFooter<StudyGuidePage> implements 
     public Locator getWords(String words) {
 
         return text(words);
+    }
+    public String getWordsText(String words) {
+
+        return text(words).innerText();
     }
 }

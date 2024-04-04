@@ -3,6 +3,7 @@ package tests;
 import com.microsoft.playwright.Locator;
 import io.qameta.allure.*;
 import jdk.jfr.Description;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.*;
 import tests.helpers.TestData;
@@ -154,17 +155,16 @@ public class PaymentTest extends BaseTest {
                         .clickLifeTimeButton()
                         .clickPurchaseButton();
 
-        final Locator stripeModalHeader = stripeModal.getStripeModalHeader();
         final Locator stripeElement = stripeModal.getStripeElement();
-
-        Allure.step("Assert that Stripe payment modal window is visible.");
-        assertThat(stripeModalHeader).isVisible();
 
         Allure.step("Assert that Stripe payment element is attached.");
         assertThat(stripeElement).isAttached();
 
-        Allure.step("Assert thet Stripe payment element is visible.");
+        Allure.step("Assert that Stripe payment element is visible.");
         assertThat(stripeElement).isVisible();
+        Allure.step("Assert that Stripe button has text Enroll Now.");
+        Assert.assertTrue(stripeModal.getStripeEnrollButton().isVisible());
+        assertThat(stripeModal.getStripeEnrollButton()).containsText("Enroll Now:");
     }
 
     @Severity(SeverityLevel.NORMAL)
@@ -188,11 +188,7 @@ public class PaymentTest extends BaseTest {
                         .inputCardCountry(TestData.COUNTRY)
                         .inputZipCode(TestData.ZIP_CODE);
 
-        final Locator stripeModalHeader = stripeModal.getStripeModalHeader();
         final Locator stripeElement = stripeModal.getStripeElement();
-
-        Allure.step("Assert that Stripe payment  form Header 'Add a payment method' is visible.");
-        assertThat(stripeModalHeader).isVisible();
 
         Allure.step("Assert that Stripe payment element is attached.");
         assertThat(stripeElement).isAttached();

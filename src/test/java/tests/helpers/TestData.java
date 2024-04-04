@@ -35,6 +35,7 @@ public final class TestData {
     public static final String PRACTICE = "Practice";
     public static final String NOTHING_FOUND = "Nothing found. Try to use other key words";
     public static final String PROJECTIONS = "Projections";
+    public static final String SUPPORTS = "supports";
     public static final String PHALANGES_IN_THE_FINGERS = "Phalanges in the fingers";
     public static final String WEAKEST_EXAM_AREAS = "Weakest Exam Areas";
     public static final String YOU_HAVE_NOT_STUDIED_ENOUGH =

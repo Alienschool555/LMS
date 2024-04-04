@@ -8,7 +8,7 @@ import utils.reports.LoggerUtils;
 
 public final class StripeModal extends BaseModal<StripeModal> {
     private final Locator stripeDialog = dialog();
-    private final Locator stripeModalHeader = text("Add a payment method");
+    private final Locator stripeEnrollButton = locator("button[type='submit']:has(+a)");
     private final Locator stripeElement = locator("div.StripeElement");
 
     StripeModal(Page page) {
@@ -23,29 +23,8 @@ public final class StripeModal extends BaseModal<StripeModal> {
         return new StripeModal(getPage());
     }
 
-    public Locator getStripeModalHeader() {
-        if (!stripeDialog.isVisible()) {
-            LoggerUtils.logInfo("Stripe Dialog is NOT visible");
-            int count = 3;
-            while (count > 0 && !getDialog().isVisible()) {
-                waitForLocator(stripeDialog, 2000);
-                count--;
-                if (count == 0) {
-                    LoggerUtils.logError("ERROR: Stripe modal is NOT visible");
-                }
-            }
-
-            waitForLocator(stripeElement, 2000);
-            if (stripeElement.isVisible()) {
-                waitForLocator(stripeModalHeader, 2000);
-            }
-        }
-
-        LoggerUtils.logInfo("Stripe Dialog is visible");
-
-        waitForLocator(stripeElement, 8000);
-
-        return stripeModalHeader;
+    public Locator getStripeEnrollButton() {
+        return stripeEnrollButton;
     }
 
     public Locator getStripeElement() {
