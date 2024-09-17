@@ -30,4 +30,13 @@ public class NavigationTest extends BaseTest {
 
         assertThat(getPage()).hasURL(expectedUrl);
     }
+
+    @Severity(SeverityLevel.BLOCKER)
+    @Story("Navigation")
+    @Test(description = "TC0002 Verify that the user can navigate to Profile page.")
+    public void testNavigateToProfilePage() {
+        getPage().locator("div.sc-dAKPfc:has(div>button>svg+p)>button").click();
+
+        assertThat(getPage()).hasURL(TestData.PROFILE_URL);
+    }
 }

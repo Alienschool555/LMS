@@ -5,6 +5,8 @@ videos/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+tokens/
+
 ### IntelliJ IDEA ###
 .idea
 *.iws

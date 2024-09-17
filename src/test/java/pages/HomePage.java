@@ -16,6 +16,7 @@ public final class HomePage extends BaseSideMenu<HomePage> implements IRandom {
     private final Locator mainSectionPoints = locator("div>svg.CircularProgressbar+div>span").first();
     private final Locator sideMenuPoints = locator("div:has(.CircularProgressbar)+span").first();
     private final Locator streaksButton = locator("button>svg+p").last();
+    private final Locator profileButton = locator("div.sc-dAKPfc:has(div>button>svg+p)>button");
     private final List<Locator> allCheckboxes = allCheckboxes("label");
     private final Locator streakDaysModalWindowText = locator("div[role='dialog']>div>p");
     private final Locator yesPerformance = locator("//div/span[text()='Yes']/parent::div/div/span[2]");
@@ -201,5 +202,12 @@ public final class HomePage extends BaseSideMenu<HomePage> implements IRandom {
         waitForLocator(noPerformance, 2000);
 
         return noPerformance.innerText();
+    }
+
+    public ProfilePage clickProfileButton() {
+        waitForLocator(profileButton, 2000);
+        profileButton.click();
+
+        return new ProfilePage(getPage()).init();
     }
 }

@@ -14,6 +14,8 @@ public final class TestData {
     public static final String FLASHCARD_PACKS_END_POINT = "/flashcard-packs";
     public static final String MNEMONIC_CARDS_LIST_END_POINT = "/mnemoniccard-list";
     public static final String PERFORMANCE_END_POINT = "/performance";
+
+    //Top Menu
     public static final String PROFILE_END_POINT = "/profile";
 
     //Pages
@@ -75,6 +77,8 @@ public final class TestData {
             "Sleek Soft Keyboard"
     };
 
+    public static final String PROFILE_URL= ProjectProperties.BASE_URL + PROFILE_END_POINT;
+
     @DataProvider
     public static Object[][] sideMenuItems() {
         return new Object[][]{
@@ -83,8 +87,7 @@ public final class TestData {
                 {"Tests", ProjectProperties.BASE_URL + TEST_LIST_END_POINT},
                 {"Flashcards", ProjectProperties.BASE_URL + FLASHCARD_PACKS_END_POINT},
                 {"Mnemonic cards", ProjectProperties.BASE_URL + MNEMONIC_CARDS_LIST_END_POINT},
-                {"Performance", ProjectProperties.BASE_URL + PERFORMANCE_END_POINT},
-                {"Profile", ProjectProperties.BASE_URL + PROFILE_END_POINT}
+                {"Performance", ProjectProperties.BASE_URL + PERFORMANCE_END_POINT}
         };
     }
 
