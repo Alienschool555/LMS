@@ -55,12 +55,10 @@ public class StudyGuideTest extends BaseTest {
         Allure.step("Assert that selected words " + TestData.PHALANGES_IN_THE_FINGERS + " are highlighted.");
         assertThat(words).hasCSS(TestData.BACKGROUND_COLOR, TestData.RGBA_223_100_56_0_2);
 
-//        studyGuidePage.clickOnWord(wordsText);
-//
-//        final Locator noteTextAria = studyGuidePage.getNoteTextAria();
-//
-//        Allure.step("Assert that text aria to put the note is visible.");
-//        assertThat(noteTextAria).isVisible();
+        final Locator noteTextAria = studyGuidePage.getNoteTextAria();
+
+        Allure.step("Assert that text aria to put the note is visible.");
+        assertThat(noteTextAria).isVisible();
     }
 @Ignore
     @Severity(SeverityLevel.NORMAL)
