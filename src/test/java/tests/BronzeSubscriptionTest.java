@@ -126,7 +126,8 @@ public class BronzeSubscriptionTest extends BaseTest {
                         .clickRandomAvailableCheckbox()
                         .clickTutorButton()
                         .inputGreaterBy1NumberOfQuestions()
-                        .clickGenerateAndStartTestButton();
+                        .clickGenerateAndStartTestButton()
+                        .clickStartTestButton();
 
         final Locator alertNotEnoughQuestions = testListPage.getAlert();
         final String alertMessage = testListPage.getAlertMessage();
