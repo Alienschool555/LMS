@@ -158,7 +158,8 @@ public class TestTutorTest extends BaseTest {
                         .clickRandomCheckboxDomain()
                         .clickTutorButton()
                         .inputNumberOfQuestions(TestData.ONE_QUESTION)
-                        .clickGenerateAndStartTutorTestButton();
+                        .clickGenerateAndStartTestButton()
+                        .clickStartTestTutorButton();
 
         final String expectedUrl = ProjectProperties.BASE_URL + TestData.TEST_TUTOR_END_POINT;
         final Locator question = testTutorPage.getTestQuestion();
@@ -197,7 +198,8 @@ public class TestTutorTest extends BaseTest {
                         .clickRandomCheckboxChapter()
                         .clickTutorButton()
                         .inputNumberOfQuestions(TestData.ONE_QUESTION)
-                        .clickGenerateAndStartTutorTestButton();
+                        .clickGenerateAndStartTestButton()
+                        .clickStartTestTutorButton();
 
         final String expectedUrl = ProjectProperties.BASE_URL + TestData.TEST_TUTOR_END_POINT;
         final Locator question = testTutorPage.getTestQuestion();
