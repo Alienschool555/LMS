@@ -42,7 +42,7 @@ public final class TestData {
     public static final String PHALANGES_IN_THE_FINGERS = "Phalanges in the fingers";
     public static final String WEAKEST_EXAM_AREAS = "Weakest Exam Areas";
     public static final String YOU_HAVE_NOT_STUDIED_ENOUGH =
-            "You have not studied enough in order for us to calculate your weakest areas. Keep Studying \uD83D\uDE03";
+            "You have not studied enough in order for us to calculate your weakest areas. Keep Studying \uD83E\uDD13";
     public static final String SEARCH_WORD = TestUtils.getRandomString(10);
     public static final String TEST = "Test";
     public static final String STATS = "Stats";
