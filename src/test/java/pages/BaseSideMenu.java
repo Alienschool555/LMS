@@ -11,7 +11,6 @@ abstract class BaseSideMenu<TPage> extends BaseModal<TPage> {
     private final Locator flashcardsButton = exactButton("Flashcards");
     private final Locator mnemonicCardsButton = exactButton("Mnemonic cards");
     private final Locator performanceButton = exactButton("Performance");
-    private final Locator profileButton = exactButton("Profile");
 
     BaseSideMenu(Page page) {
         super(page);
@@ -57,12 +56,5 @@ abstract class BaseSideMenu<TPage> extends BaseModal<TPage> {
         performanceButton.click();
 
         return new PerformancePage(getPage()).init();
-    }
-
-    @Step("Click side menu 'Profile'.")
-    public ProfilePage clickProfileMenu() {
-        profileButton.click();
-
-        return new ProfilePage(getPage()).init();
     }
 }

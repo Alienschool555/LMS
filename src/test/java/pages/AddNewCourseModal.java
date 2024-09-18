@@ -5,8 +5,9 @@ import com.microsoft.playwright.Page;
 import io.qameta.allure.Step;
 
 public final class AddNewCourseModal extends BaseModal<AddNewCourseModal> {
-    private final Locator lifeTimeButton = button("Life");
-    private final Locator chooseAProductHeading = locator(".ReactModalPortal div:has(> div > svg) > span");
+    private final Locator mvpSubscribeButton =
+      locator("//span[text()='MVP']/parent::div/parent::div/button[text()='Subscribe']");
+    private final Locator chooseAProductHeading = locator("#chooseProduct>div>div>span");
     private final Locator goldHeader = exactText("Gold");
     private final Locator silverHeader = exactText("Silver");
     private final Locator bronzeHeader = exactText("Bronze");
@@ -22,9 +23,9 @@ public final class AddNewCourseModal extends BaseModal<AddNewCourseModal> {
         return new AddNewCourseModal(getPage());
     }
 
-    @Step("Click 'Lifetime' button.")
-    public AddNewCourseModal clickLifeTimeButton() {
-        lifeTimeButton.click();
+    @Step("Click MVP plan 'Subscribe' button.")
+    public AddNewCourseModal clickMVPSubscribeButton() {
+        mvpSubscribeButton.click();
 
         return init();
     }
@@ -34,9 +35,9 @@ public final class AddNewCourseModal extends BaseModal<AddNewCourseModal> {
         return chooseAProductHeading;
     }
 
-    public Locator getLifeTimeButton() {
+    public Locator getMvpSubscribeButton() {
 
-        return lifeTimeButton;
+        return mvpSubscribeButton;
     }
 
     public Locator getGoldHeading() {

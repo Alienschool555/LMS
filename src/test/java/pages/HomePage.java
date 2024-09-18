@@ -204,6 +204,7 @@ public final class HomePage extends BaseSideMenu<HomePage> implements IRandom {
         return noPerformance.innerText();
     }
 
+    @Step("Click 'Profile' button.")
     public ProfilePage clickProfileButton() {
         waitForLocator(profileButton, 2000);
         profileButton.click();

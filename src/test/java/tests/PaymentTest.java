@@ -25,7 +25,7 @@ public class PaymentTest extends BaseTest {
 
         ProfilePage profilePage =
                 new HomePage(getPage()).init()
-                        .clickProfileMenu();
+                        .clickProfileButton();
 
         Allure.step("Assert that user can land on Profile page (" + TestData.PROFILE_END_POINT + ").");
         assertThat(getPage()).hasURL(profileUrl);
@@ -56,7 +56,7 @@ public class PaymentTest extends BaseTest {
 
         AddNewCoursePage addNewCoursePage =
                 new HomePage(getPage()).init()
-                        .clickProfileMenu()
+                        .clickProfileButton()
                         .clickAddANewCourseButton();
 
         Allure.step("Assert that user can land on Add new course page (" + TestData.ADD_NEW_COURSE_END_POINT + ").");
@@ -77,12 +77,12 @@ public class PaymentTest extends BaseTest {
     public void testOpenChooseAProductModalByClickAGetButton() {
         AddNewCourseModal addNewCourseModal =
                 new HomePage(getPage()).init()
-                        .clickProfileMenu()
+                        .clickProfileButton()
                         .clickAddANewCourseButton()
                         .clickGetButton();
 
         final Locator modalHeading = addNewCourseModal.getChooseAProductHeading();
-        final Locator lifetimeButton = addNewCourseModal.getLifeTimeButton();
+        final Locator mvpSubscribeButton = addNewCourseModal.getMvpSubscribeButton();
 
         Allure.step("Assert that after clicking on 'Get' button, the new modal window is opened.");
         assertThat(addNewCourseModal.getDialog()).isVisible();
@@ -93,11 +93,11 @@ public class PaymentTest extends BaseTest {
         Allure.step("Assert that the heading text is '" + TestData.CHOOSE_A_PRODUCT + "'.");
         assertThat(modalHeading).hasText(TestData.CHOOSE_A_PRODUCT);
 
-        Allure.step("Assert that the 'Lifetime' button is visible.");
-        assertThat(lifetimeButton).isVisible();
+        Allure.step("Assert that the MVP plan 'Subscribe' button is visible.");
+        assertThat(mvpSubscribeButton).isVisible();
 
-        Allure.step("Assert that the 'Lifetime' button is enabled.");
-        assertThat(lifetimeButton).isEnabled();
+        Allure.step("Assert that the MVP plan 'Subscribe' button is enabled.");
+        assertThat(mvpSubscribeButton).isEnabled();
     }
 
     @Severity(SeverityLevel.NORMAL)
@@ -110,10 +110,10 @@ public class PaymentTest extends BaseTest {
     public void testClickOnTheLifeTimeButton() {
         AddNewCourseModal addNewCourseModal =
                 new HomePage(getPage()).init()
-                        .clickProfileMenu()
+                        .clickProfileButton()
                         .clickAddANewCourseButton()
                         .clickGetButton()
-                        .clickLifeTimeButton();
+                        .clickMVPSubscribeButton();
 
         final Locator goldHeading = addNewCourseModal.getGoldHeading();
         final Locator silverHeading = addNewCourseModal.getSilverHeading();
@@ -149,10 +149,10 @@ public class PaymentTest extends BaseTest {
     public void testPurchaseButtonOpensStripeElement() {
         StripeModal stripeModal =
                 new HomePage(getPage()).init()
-                        .clickProfileMenu()
+                        .clickProfileButton()
                         .clickAddANewCourseButton()
                         .clickGetButton()
-                        .clickLifeTimeButton()
+                        .clickMVPSubscribeButton()
                         .clickPurchaseButton();
 
         final Locator stripeElement = stripeModal.getStripeElement();
@@ -177,10 +177,10 @@ public class PaymentTest extends BaseTest {
     public void testE2EPurchaseLifeTimeCourse() {
         StripeModal stripeModal =
                 new HomePage(getPage()).init()
-                        .clickProfileMenu()
+                        .clickProfileButton()
                         .clickAddANewCourseButton()
                         .clickGetButton()
-                        .clickLifeTimeButton()
+                        .clickMVPSubscribeButton()
                         .clickPurchaseButton()
                         .inputCreditCardNumber(TestData.PAYMENT_CARD_NUMBER)
                         .inputCardExpirationDate(TestData.CARD_EXPIRATION_DATE)
