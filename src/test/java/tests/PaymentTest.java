@@ -31,14 +31,14 @@ public class PaymentTest extends BaseTest {
         assertThat(getPage()).hasURL(profileUrl);
 
         final Locator accountHeading = profilePage.getAccount();
-        final Locator paymentMethodHeading = profilePage.getPaymentMethod();
+        final Locator billingButton = profilePage.getBillingButton();
         final Locator addANewCourseButton = profilePage.getAddANewCourseButton();
 
         Allure.step("Assert that 'Account' heading is visible.");
         assertThat(accountHeading).isVisible();
 
-        Allure.step("Assert that 'Payment method' heading is visible.");
-        assertThat(paymentMethodHeading).isVisible();
+        Allure.step("Assert that 'Billing' button is visible.");
+        assertThat(billingButton).isVisible();
 
         Allure.step("Assert that 'Add a New Course' button is visible.");
         assertThat(addANewCourseButton).isVisible();
