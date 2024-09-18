@@ -91,7 +91,8 @@ public class BronzeSubscriptionTest extends BaseTest {
                         .clickRandomAvailableCheckbox()
                         .clickTutorButton()
                         .inputRandomNumberOfQuestions()
-                        .clickGenerateAndStartTutorTestButton();
+                        .clickGenerateAndStartTestButton()
+                        .clickStartTestTutorButton();
 
         final Locator testQuestion = testTutorPage.getTestQuestion();
         final int testAnswersCount = testTutorPage.countAnswers();
