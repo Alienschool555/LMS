@@ -8,10 +8,9 @@ public final class AddNewCourseModal extends BaseModal<AddNewCourseModal> {
     private final Locator mvpSubscribeButton =
       locator("//span[text()='MVP']/parent::div/parent::div/button[text()='Subscribe']");
     private final Locator chooseAProductHeading = locator("#chooseProduct>div>div>span");
-    private final Locator goldHeader = exactText("Gold");
-    private final Locator silverHeader = exactText("Silver");
-    private final Locator bronzeHeader = exactText("Bronze");
-    private final Locator purchaseButton = exactButton("Purchase");
+    private final Locator mvpHeader = exactText("MVP");
+    private final Locator allStarHeader = exactText("All-Star");
+    private final Locator rookieHeader = exactText("Rookie");
 
     AddNewCourseModal(Page page) {
         super(page);
@@ -40,30 +39,18 @@ public final class AddNewCourseModal extends BaseModal<AddNewCourseModal> {
         return mvpSubscribeButton;
     }
 
-    public Locator getGoldHeading() {
+    public Locator getMVPHeading() {
 
-        return goldHeader;
+        return mvpHeader;
     }
 
-    public Locator getSilverHeading() {
+    public Locator getAllStarHeading() {
 
-        return silverHeader;
+        return allStarHeader;
     }
 
-    public Locator getBronzeHeading() {
+    public Locator getRookieHeading() {
 
-        return bronzeHeader;
+        return rookieHeader;
     }
-
-    public Locator getPurchaseButton() {
-
-        return purchaseButton;
-    }
-
-//    @Step("Click testPurchaseButtonOpensStripeElement")
-//    public StripeModal clickPurchaseButton() {
-//        purchaseButton.click();
-//
-//        return new StripeModal(getPage()).init();
-//    }
 }

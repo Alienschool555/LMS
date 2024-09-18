@@ -102,44 +102,46 @@ public class PaymentTest extends BaseTest {
         assertThat(mvpSubscribeButton).isEnabled();
     }
 
-//    @Severity(SeverityLevel.NORMAL)
-//    @Story("AddNewCourse")
-//    @TmsLink("wxcm7w4fhzq0")
-//    @Description("LMS-TC1359 Покупка курса.https://app.qase.io/plan/LMS/1?case=1359"
-//            + "Objective: To verify the user's ability to purchase the Lifetime course."
-//            + " and verify that the user is redirected to the Lifetime course purchase page.")
-//    @Test(description = "TC1359-04 - Purchasing MVP Course (Gold package)")
-//    public void testClickOnTheMVPSubscribeButton() {
-//        StripeModal addNewCourseModal =
-//                new HomePage(getPage()).init()
-//                        .clickProfileButton()
-//                        .clickAddANewCourseButton()
-//                        .clickGetButton()
-//                        .clickMVPSubscribeButton();
-//
-//        final Locator goldHeading = addNewCourseModal.getGoldHeading();
-//        final Locator silverHeading = addNewCourseModal.getSilverHeading();
-//        final Locator bronzeHeading = addNewCourseModal.getBronzeHeading();
-//        final Locator purchaseButton = addNewCourseModal.getPurchaseButton();
-//
-////        Allure.step("Assert that the 'Gold' option is available.");
-////        assertThat(goldHeading).isVisible();
-//
-//        Allure.step("Assert that the 'Silver' option is not available.");
-//        assertThat(silverHeading).not().isVisible();
-//
-//        Allure.step("Assert that the 'Bronze' option is not available.");
-//        assertThat(bronzeHeading).not().isVisible();
-//
-//        Allure.step("Assert that the 'Purchase' button is visible.");
-//        assertThat(purchaseButton).isVisible();
-//
-//        Allure.step("Assert that the only one 'Purchase' button is present.");
-//        assertThat(purchaseButton).hasCount(1);
-//
-//        Allure.step("Assert that the 'Purchase' button is enabled.");
-//        assertThat(purchaseButton).isEnabled();
-//    }
+    @Severity(SeverityLevel.NORMAL)
+    @Story("AddNewCourse")
+    @TmsLink("wxcm7w4fhzq0")
+    @Description("LMS-TC1359 Покупка курса.https://app.qase.io/plan/LMS/1?case=1359"
+            + "Objective: To verify the user's ability to purchase the MVP course."
+            + " and verify that the user is redirected to the MVP course purchase modal.")
+    @Test(description = "TC1359-04 - Purchasing MVP Course (Gold package)")
+    public void testClickOnTheMVPSubscribeButton() {
+        AddNewCourseModal addNewCourseModal =
+          new HomePage(getPage()).init()
+            .clickProfileButton()
+            .clickAddANewCourseButton()
+            .clickGetButton();
+
+        Locator mvpHeading = addNewCourseModal.getMVPHeading();
+        Locator allStarHeading = addNewCourseModal.getAllStarHeading();
+        Locator rookieHeading = addNewCourseModal.getRookieHeading();
+
+        Allure.step("Assert that the 'MVP' option is available.");
+        assertThat(mvpHeading).isVisible();
+
+        Allure.step("Assert that the 'All-Star' option is available.");
+        assertThat(allStarHeading).isVisible();
+
+        Allure.step("Assert that the 'Rookie' option is available.");
+        assertThat(rookieHeading).isVisible();
+
+        addNewCourseModal
+          .clickMVPSubscribeButton();
+
+        Allure.step("Assert that the only 'MVP' option is available.");
+        assertThat(getPage().getByText("MVP")).isVisible();
+
+        Allure.step("Assert that the 'All-Star' option is not available.");
+        assertThat(getPage().getByText("All-Star")).not().isVisible();
+
+        Allure.step("Assert that the 'Rookie' option is not available.");
+        assertThat(getPage().getByText("Rookie")).not().isVisible();
+    }
+
 
     @Severity(SeverityLevel.NORMAL)
     @Story("StripeModal")
