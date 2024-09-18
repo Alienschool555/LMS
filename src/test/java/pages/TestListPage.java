@@ -170,6 +170,13 @@ public final class TestListPage extends BaseSideMenu<TestListPage> implements IR
         return this;
     }
 
+    @Step("Click 'Start test' button.")
+    public TestTutorPage clickStartTestTutorButton() {
+        startTestButton.click();
+
+        return new TestTutorPage(getPage()).init();
+    }
+
     @Step("Click 'Start' button.")
     public TestTimedPage clickStartButton() {
         startButton.click();

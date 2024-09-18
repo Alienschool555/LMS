@@ -14,6 +14,8 @@ public final class TestData {
     public static final String FLASHCARD_PACKS_END_POINT = "/flashcard-packs";
     public static final String MNEMONIC_CARDS_LIST_END_POINT = "/mnemoniccard-list";
     public static final String PERFORMANCE_END_POINT = "/performance";
+
+    //Top Menu
     public static final String PROFILE_END_POINT = "/profile";
 
     //Pages
@@ -28,7 +30,7 @@ public final class TestData {
     //Data
     public static final String ONE_QUESTION = "1";
     public static final String BACKGROUND_COLOR = "background-color";
-    public static final String RGBA_62_48_179_0_2 = "rgba(62, 48, 179, 0.2)";
+    public static final String RGBA_223_100_56_0_2 = "rgba(223, 100, 56, 0.2)";
     public static final String QUESTION_MARK = "?";
     public static final String EXPLANATION = "Explanation";
     public static final String CHECKBOX_POINTS = "833";
@@ -36,10 +38,11 @@ public final class TestData {
     public static final String NOTHING_FOUND = "Nothing found. Try to use other key words";
     public static final String PROJECTIONS = "Projections";
     public static final String SUPPORTS = "supports";
+    public static final String BODY = "body";
     public static final String PHALANGES_IN_THE_FINGERS = "Phalanges in the fingers";
     public static final String WEAKEST_EXAM_AREAS = "Weakest Exam Areas";
     public static final String YOU_HAVE_NOT_STUDIED_ENOUGH =
-            "You have not studied enough in order for us to calculate your weakest areas. Keep Studying \uD83D\uDE03";
+            "You have not studied enough in order for us to calculate your weakest areas. Keep Studying \uD83E\uDD13";
     public static final String SEARCH_WORD = TestUtils.getRandomString(10);
     public static final String TEST = "Test";
     public static final String STATS = "Stats";
@@ -75,6 +78,8 @@ public final class TestData {
             "Sleek Soft Keyboard"
     };
 
+    public static final String PROFILE_URL= ProjectProperties.BASE_URL + PROFILE_END_POINT;
+
     @DataProvider
     public static Object[][] sideMenuItems() {
         return new Object[][]{
@@ -83,8 +88,7 @@ public final class TestData {
                 {"Tests", ProjectProperties.BASE_URL + TEST_LIST_END_POINT},
                 {"Flashcards", ProjectProperties.BASE_URL + FLASHCARD_PACKS_END_POINT},
                 {"Mnemonic cards", ProjectProperties.BASE_URL + MNEMONIC_CARDS_LIST_END_POINT},
-                {"Performance", ProjectProperties.BASE_URL + PERFORMANCE_END_POINT},
-                {"Profile", ProjectProperties.BASE_URL + PROFILE_END_POINT}
+                {"Performance", ProjectProperties.BASE_URL + PERFORMANCE_END_POINT}
         };
     }
 

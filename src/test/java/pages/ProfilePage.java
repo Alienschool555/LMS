@@ -8,7 +8,7 @@ import pages.constants.Constants;
 public final class ProfilePage extends BaseSideMenu<ProfilePage> {
     private final Locator addANewCourseButton = button("Add a new course");
     private final Locator account = exactHeading("Account");
-    private final Locator paymentMethod = exactHeading("Payment method");
+    private final Locator billingButton = button("Billing");
 
     ProfilePage(Page page) {
         super(page);
@@ -25,9 +25,9 @@ public final class ProfilePage extends BaseSideMenu<ProfilePage> {
         return account;
     }
 
-    public Locator getPaymentMethod() {
+    public Locator getBillingButton() {
 
-        return paymentMethod;
+        return billingButton;
     }
 
     public Locator getAddANewCourseButton() {

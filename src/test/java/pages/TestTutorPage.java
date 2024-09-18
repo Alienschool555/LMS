@@ -50,8 +50,15 @@ public final class TestTutorPage extends BaseTestsPage<TestTutorPage> implements
         return this;
     }
 
+    @Step("Click Correct Answer.")
+    public TestTutorPage clickCorrectAnswerLabel() {
+        getCorrectAnswerLabel().click();
+        return this;
+    }
+
     @Step("Click 'Confirm' button.")
     public TestTutorPage clickConfirmButton() {
+        getConfirmButton().waitFor();
         getConfirmButton().click();
         return this;
     }

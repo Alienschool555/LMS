@@ -59,7 +59,8 @@ public final class PreconditionPage extends BasePage<PreconditionPage> {
                 .clickDomainsButton()
                 .clickRandomCheckboxDomain()
                 .inputNumberOfQuestions(number)
-                .clickGenerateAndStartTutorTestButton();
+                .clickGenerateAndStartTestButton()
+                .clickStartTestButton();
 
         return new TestTutorPage(getPage()).init();
     }
@@ -126,12 +127,14 @@ public final class PreconditionPage extends BasePage<PreconditionPage> {
             testListPage
                     .clickAutomationTestingForStatsCheckBox()
                     .inputNumberOfQuestions(numberOfQuestions)
-                    .clickGenerateAndStartTutorTestButton();
+                    .clickGenerateAndStartTestButton()
+                    .clickStartTestButton();
         } else if (nameTest.equals("Stats")) {
             testListPage
                     .clickHistoryAndCivilizationForStatsCheckBox()
                     .inputNumberOfQuestions(numberOfQuestions)
-                    .clickGenerateAndStartTutorTestButton();
+                    .clickGenerateAndStartTestButton()
+                    .clickStartTestButton();
         }
     }
 

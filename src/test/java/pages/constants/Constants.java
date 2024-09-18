@@ -21,5 +21,5 @@ public final class  Constants {
     public static final String NOTHING_FOUND = "Nothing found. Try to use other key words";
     public static final String SEARCH = "Search";
     public static final String YOU_HAVE_NOT_STUDIED_ENOUGH =
-            "You have not studied enough in order for us to calculate your weakest areas. Keep Studying \uD83D\uDE03";
+            "You have not studied enough in order for us to calculate your weakest areas. Keep Studying \uD83E\uDD13";
 }
