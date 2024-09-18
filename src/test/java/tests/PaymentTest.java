@@ -194,10 +194,10 @@ public class PaymentTest extends BaseTest {
 
         final List<Locator> paymentsElements = stripeModal.getPaymentsElement();
 
-//        Allure.step("Assert that Stripe payment element is attached.");
-//        assertThat(stripeElement).isAttached();
-//
-//        Allure.step("Assert that Stripe payment element is visible.");
-//        assertThat(stripeElement).isVisible();
+        Allure.step("Assert that Payments elements are attached.");
+        paymentsElements.forEach(paymentElement -> assertThat(paymentElement).isAttached());
+
+        Allure.step("Assert that Payments elements are visible.");
+        paymentsElements.forEach(paymentElement -> assertThat(paymentElement).isVisible());
     }
 }
