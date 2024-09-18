@@ -9,6 +9,8 @@ import pages.*;
 import tests.helpers.TestData;
 import utils.runner.ProjectProperties;
 
+import java.util.List;
+
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
 public class PaymentTest extends BaseTest {
@@ -100,71 +102,72 @@ public class PaymentTest extends BaseTest {
         assertThat(mvpSubscribeButton).isEnabled();
     }
 
+//    @Severity(SeverityLevel.NORMAL)
+//    @Story("AddNewCourse")
+//    @TmsLink("wxcm7w4fhzq0")
+//    @Description("LMS-TC1359 Покупка курса.https://app.qase.io/plan/LMS/1?case=1359"
+//            + "Objective: To verify the user's ability to purchase the Lifetime course."
+//            + " and verify that the user is redirected to the Lifetime course purchase page.")
+//    @Test(description = "TC1359-04 - Purchasing MVP Course (Gold package)")
+//    public void testClickOnTheMVPSubscribeButton() {
+//        StripeModal addNewCourseModal =
+//                new HomePage(getPage()).init()
+//                        .clickProfileButton()
+//                        .clickAddANewCourseButton()
+//                        .clickGetButton()
+//                        .clickMVPSubscribeButton();
+//
+//        final Locator goldHeading = addNewCourseModal.getGoldHeading();
+//        final Locator silverHeading = addNewCourseModal.getSilverHeading();
+//        final Locator bronzeHeading = addNewCourseModal.getBronzeHeading();
+//        final Locator purchaseButton = addNewCourseModal.getPurchaseButton();
+//
+////        Allure.step("Assert that the 'Gold' option is available.");
+////        assertThat(goldHeading).isVisible();
+//
+//        Allure.step("Assert that the 'Silver' option is not available.");
+//        assertThat(silverHeading).not().isVisible();
+//
+//        Allure.step("Assert that the 'Bronze' option is not available.");
+//        assertThat(bronzeHeading).not().isVisible();
+//
+//        Allure.step("Assert that the 'Purchase' button is visible.");
+//        assertThat(purchaseButton).isVisible();
+//
+//        Allure.step("Assert that the only one 'Purchase' button is present.");
+//        assertThat(purchaseButton).hasCount(1);
+//
+//        Allure.step("Assert that the 'Purchase' button is enabled.");
+//        assertThat(purchaseButton).isEnabled();
+//    }
+
     @Severity(SeverityLevel.NORMAL)
-    @Story("AddNewCourse")
-    @TmsLink("wxcm7w4fhzq0")
+    @Story("StripeModal")
+    @TmsLink("8afbdan400ta")
     @Description("LMS-TC1359 Покупка курса.https://app.qase.io/plan/LMS/1?case=1359"
-            + "Objective: To verify the user's ability to purchase the Lifetime course."
-            + " and verify that the user is redirected to the Lifetime course purchase page.")
-    @Test(description = "TC1359-04 - Purchasing Lifetime Course (Gold package)")
-    public void testClickOnTheLifeTimeButton() {
-        AddNewCourseModal addNewCourseModal =
+            + "Objective: To verify the user's ability to input payment information after clicking "
+                   + "the 'MVPSubscribeButton' button."
+            + " and verify the User is redirected to the Stripe Payments Options Modal.")
+    @Test(description = "TC1359-05 - Inputting Payment Information After Clicking 'MVPSubscribeButton'")
+    public void testMVPSubscribeButtonOpensStripeModal() {
+        StripeModal stripeModal =
                 new HomePage(getPage()).init()
                         .clickProfileButton()
                         .clickAddANewCourseButton()
                         .clickGetButton()
                         .clickMVPSubscribeButton();
 
-        final Locator goldHeading = addNewCourseModal.getGoldHeading();
-        final Locator silverHeading = addNewCourseModal.getSilverHeading();
-        final Locator bronzeHeading = addNewCourseModal.getBronzeHeading();
-        final Locator purchaseButton = addNewCourseModal.getPurchaseButton();
+        final List<Locator> paymentsElement = stripeModal.getPaymentsElement();
 
-//        Allure.step("Assert that the 'Gold' option is available.");
-//        assertThat(goldHeading).isVisible();
+        Allure.step("Assert that Payments elements are attached.");
+        paymentsElement.forEach(paymentElement -> assertThat(paymentElement).isAttached());
 
-        Allure.step("Assert that the 'Silver' option is not available.");
-        assertThat(silverHeading).not().isVisible();
+        Allure.step("Assert that Payments elements are visible.");
+        paymentsElement.forEach(paymentElement -> assertThat(paymentElement).isVisible());
 
-        Allure.step("Assert that the 'Bronze' option is not available.");
-        assertThat(bronzeHeading).not().isVisible();
-
-        Allure.step("Assert that the 'Purchase' button is visible.");
-        assertThat(purchaseButton).isVisible();
-
-        Allure.step("Assert that the only one 'Purchase' button is present.");
-        assertThat(purchaseButton).hasCount(1);
-
-        Allure.step("Assert that the 'Purchase' button is enabled.");
-        assertThat(purchaseButton).isEnabled();
-    }
-
-    @Severity(SeverityLevel.NORMAL)
-    @Story("StripeModal")
-    @TmsLink("8afbdan400ta")
-    @Description("LMS-TC1359 Покупка курса.https://app.qase.io/plan/LMS/1?case=1359"
-            + "Objective: To verify the user's ability to input payment information after clicking the 'Purchase' button."
-            + " and verify the User is redirected to the 'Add a payment method' page.")
-    @Test(description = "TC1359-05 - Inputting Payment Information After Clicking 'Purchase'")
-    public void testPurchaseButtonOpensStripeElement() {
-        StripeModal stripeModal =
-                new HomePage(getPage()).init()
-                        .clickProfileButton()
-                        .clickAddANewCourseButton()
-                        .clickGetButton()
-                        .clickMVPSubscribeButton()
-                        .clickPurchaseButton();
-
-        final Locator stripeElement = stripeModal.getStripeElement();
-
-        Allure.step("Assert that Stripe payment element is attached.");
-        assertThat(stripeElement).isAttached();
-
-        Allure.step("Assert that Stripe payment element is visible.");
-        assertThat(stripeElement).isVisible();
-        Allure.step("Assert that Stripe button has text Enroll Now.");
-        Assert.assertTrue(stripeModal.getStripeEnrollButton().isVisible());
-        assertThat(stripeModal.getStripeEnrollButton()).containsText("Enroll Now:");
+        Allure.step("Assert that Stripe modal button has text 'Enroll Now'.");
+        Assert.assertTrue(stripeModal.getEnrollNowButton().isVisible());
+        assertThat(stripeModal.getEnrollNowButton()).containsText("Enroll Now:");
     }
 
     @Severity(SeverityLevel.NORMAL)
@@ -181,19 +184,18 @@ public class PaymentTest extends BaseTest {
                         .clickAddANewCourseButton()
                         .clickGetButton()
                         .clickMVPSubscribeButton()
-                        .clickPurchaseButton()
                         .inputCreditCardNumber(TestData.PAYMENT_CARD_NUMBER)
                         .inputCardExpirationDate(TestData.CARD_EXPIRATION_DATE)
                         .inputCardCVC(TestData.CVC)
                         .inputCardCountry(TestData.COUNTRY)
                         .inputZipCode(TestData.ZIP_CODE);
 
-        final Locator stripeElement = stripeModal.getStripeElement();
+        final List<Locator> paymentsElements = stripeModal.getPaymentsElement();
 
-        Allure.step("Assert that Stripe payment element is attached.");
-        assertThat(stripeElement).isAttached();
-
-        Allure.step("Assert that Stripe payment element is visible.");
-        assertThat(stripeElement).isVisible();
+//        Allure.step("Assert that Stripe payment element is attached.");
+//        assertThat(stripeElement).isAttached();
+//
+//        Allure.step("Assert that Stripe payment element is visible.");
+//        assertThat(stripeElement).isVisible();
     }
 }

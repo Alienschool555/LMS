@@ -24,10 +24,10 @@ public final class AddNewCourseModal extends BaseModal<AddNewCourseModal> {
     }
 
     @Step("Click MVP plan 'Subscribe' button.")
-    public AddNewCourseModal clickMVPSubscribeButton() {
+    public StripeModal clickMVPSubscribeButton() {
         mvpSubscribeButton.click();
 
-        return init();
+        return new StripeModal(getPage()).init();
     }
 
     public Locator getChooseAProductHeading() {
@@ -60,10 +60,10 @@ public final class AddNewCourseModal extends BaseModal<AddNewCourseModal> {
         return purchaseButton;
     }
 
-    @Step("Click 'Purchase' button.")
-    public StripeModal clickPurchaseButton() {
-        purchaseButton.click();
-
-        return new StripeModal(getPage()).init();
-    }
+//    @Step("Click testPurchaseButtonOpensStripeElement")
+//    public StripeModal clickPurchaseButton() {
+//        purchaseButton.click();
+//
+//        return new StripeModal(getPage()).init();
+//    }
 }

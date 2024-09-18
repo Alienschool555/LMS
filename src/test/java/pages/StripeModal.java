@@ -6,10 +6,11 @@ import com.microsoft.playwright.Page;
 import io.qameta.allure.Step;
 import utils.reports.LoggerUtils;
 
+import java.util.List;
+
 public final class StripeModal extends BaseModal<StripeModal> {
-    private final Locator stripeDialog = dialog();
-    private final Locator stripeEnrollButton = locator("button[type='submit']:has(+a)");
-    private final Locator stripeElement = locator("div.StripeElement");
+    private final Locator enrollNowButton = locator("form>button[type='submit']:not([name='hidden'])");
+    private final List<Locator> paymentsElements = allItems("div.StripeElement");
 
     StripeModal(Page page) {
 
@@ -23,16 +24,17 @@ public final class StripeModal extends BaseModal<StripeModal> {
         return new StripeModal(getPage());
     }
 
-    public Locator getStripeEnrollButton() {
-        return stripeEnrollButton;
+    public Locator getEnrollNowButton() {
+
+        return enrollNowButton;
     }
 
-    public Locator getStripeElement() {
+    public List<Locator> getPaymentsElement() {
 
-        return stripeElement;
+        return paymentsElements;
     }
 
-    @Step("Wait for Stripe element.")
+    @Step("Wait for Stripe elements.")
     private FrameLocator getStripePaymentInputFields() {
         waitForPageLoad();
         waitWithTimeout(7000);
