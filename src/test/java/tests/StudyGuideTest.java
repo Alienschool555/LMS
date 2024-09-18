@@ -25,16 +25,16 @@ public class StudyGuideTest extends BaseTest {
         StudyGuidePage studyGuidePage =
                 new HomePage(getPage()).init()
                         .clickStudyGuideMenu()
-                        .doubleClickOnWord(TestData.SUPPORTS);
-//                        .clickOnWord(TestData.SUPPORTS);
+                        .doubleClickOnWord(TestData.BODY);
 
         final Locator noteTextAria = studyGuidePage.getNoteTextAria();
-        final Locator word = studyGuidePage.getWord(TestData.SUPPORTS);
+        final Locator word = studyGuidePage.getWord(TestData.BODY);
 
-//        Allure.step("Assert that text aria to put the note is visible.");
-//        assertThat(noteTextAria).isVisible();
-        Allure.step("Assert that selected word '" + TestData.SUPPORTS + "' is highlighted.");
-        assertThat(word).hasCSS(TestData.BACKGROUND_COLOR, TestData.RGBA_62_48_179_0_2);
+        Allure.step("Assert that text aria to put the note is visible.");
+        assertThat(noteTextAria).isVisible();
+
+        Allure.step("Assert that selected word '" + TestData.BODY + "' is highlighted.");
+        assertThat(word).hasCSS(TestData.BACKGROUND_COLOR, TestData.RGBA_223_100_56_0_2);
     }
 
     @Severity(SeverityLevel.NORMAL)
@@ -53,7 +53,7 @@ public class StudyGuideTest extends BaseTest {
         final String wordsText = studyGuidePage.getWordsText(TestData.PHALANGES_IN_THE_FINGERS);
 
         Allure.step("Assert that selected words " + TestData.PHALANGES_IN_THE_FINGERS + " are highlighted.");
-        assertThat(words).hasCSS(TestData.BACKGROUND_COLOR, TestData.RGBA_62_48_179_0_2);
+        assertThat(words).hasCSS(TestData.BACKGROUND_COLOR, TestData.RGBA_223_100_56_0_2);
 
 //        studyGuidePage.clickOnWord(wordsText);
 //

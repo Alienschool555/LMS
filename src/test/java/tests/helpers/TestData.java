@@ -30,7 +30,7 @@ public final class TestData {
     //Data
     public static final String ONE_QUESTION = "1";
     public static final String BACKGROUND_COLOR = "background-color";
-    public static final String RGBA_62_48_179_0_2 = "rgba(62, 48, 179, 0.2)";
+    public static final String RGBA_223_100_56_0_2 = "rgba(223, 100, 56, 0.2)";
     public static final String QUESTION_MARK = "?";
     public static final String EXPLANATION = "Explanation";
     public static final String CHECKBOX_POINTS = "833";
@@ -38,6 +38,7 @@ public final class TestData {
     public static final String NOTHING_FOUND = "Nothing found. Try to use other key words";
     public static final String PROJECTIONS = "Projections";
     public static final String SUPPORTS = "supports";
+    public static final String BODY = "body";
     public static final String PHALANGES_IN_THE_FINGERS = "Phalanges in the fingers";
     public static final String WEAKEST_EXAM_AREAS = "Weakest Exam Areas";
     public static final String YOU_HAVE_NOT_STUDIED_ENOUGH =
