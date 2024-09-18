@@ -127,12 +127,14 @@ public final class PreconditionPage extends BasePage<PreconditionPage> {
             testListPage
                     .clickAutomationTestingForStatsCheckBox()
                     .inputNumberOfQuestions(numberOfQuestions)
-                    .clickGenerateAndStartTutorTestButton();
+                    .clickGenerateAndStartTestButton()
+                    .clickStartTestButton();
         } else if (nameTest.equals("Stats")) {
             testListPage
                     .clickHistoryAndCivilizationForStatsCheckBox()
                     .inputNumberOfQuestions(numberOfQuestions)
-                    .clickGenerateAndStartTutorTestButton();
+                    .clickGenerateAndStartTestButton()
+                    .clickStartTestButton();
         }
     }
 
