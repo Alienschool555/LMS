@@ -10,8 +10,9 @@ abstract class BaseTestsPage<TPage> extends BaseFooter<TPage> {
     private final Locator testQuestion = locator("form span");
     private final List<Locator> radioButtons = allItems("input[type='radio']");
     private final Locator correctAnswer = text("Correct Answer");
+    private final Locator correctAnswerLabel = locator("//div/label[contains(text(),'Correct Answer')]");
     private final Locator correctAnswerBackgroundColor55B47D = locator("[fill='#55B47D']");
-    private final Locator h3Header = locator("div h3");
+    private final Locator h3Header = locator("//h3[2]");
     private final Locator explanationTextLocator = locator("h3~div>span");
     private final Locator confirmButton = exactButton("Confirm");
     private final Locator nextQuestionButton = button("Next question");
@@ -30,6 +31,11 @@ abstract class BaseTestsPage<TPage> extends BaseFooter<TPage> {
     public Locator getCorrectAnswer() {
 
         return correctAnswer;
+    }
+
+    public Locator getCorrectAnswerLabel() {
+
+        return correctAnswerLabel;
     }
 
     public Locator getCorrectAnswerBackgroundColor55B47D() {

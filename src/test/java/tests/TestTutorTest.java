@@ -60,14 +60,15 @@ public class TestTutorTest extends BaseTest {
                         .clickRandomCheckboxDomain()
                         .clickTutorButton()
                         .inputNumberOfQuestions(TestData.ONE_QUESTION)
-                        .clickGenerateAndStartTutorTestButton()
-                        .clickCorrectAnswer()
+                        .clickGenerateAndStartTestButton()
+                        .clickStartTestTutorButton()
+                        .clickCorrectAnswerLabel()
                         .clickConfirmButton();
 
         final Locator correctAnswerBgColor55B47D = testTutorPage.getCorrectAnswerBackgroundColor55B47D();
         final Locator explanationHeader = testTutorPage.getH3Header();
         final Locator answerExplanation = testTutorPage.getExplanationTextLocator();
-        final String correctAnswerText = testTutorPage.getCorrectAnswer().innerText();
+        final String correctAnswerText = testTutorPage.getCorrectAnswerLabel().innerText();
 
         Allure.step("Assert that correct answer '" + correctAnswerText + "' contains 'Correct' word.");
         Assert.assertTrue(correctAnswerText.contains("Correct"));
